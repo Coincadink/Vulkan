@@ -92,6 +92,7 @@ private:
 		createLogicalDevice();
 		createSwapChain();
 		createImageViews();
+		createGraphicsPipeline();
 	}
 
 	// CREATE INSTANCE
@@ -545,6 +546,13 @@ private:
 				throw std::runtime_error("Failed to create image views.");
 			}
 		}
+	}
+
+	// CREATE GRAPHICS PIPELINE
+
+	void createGraphicsPipeline()
+	{
+
 	}
 
 	// - MAIN LOOP
