@@ -18,6 +18,9 @@ const uint32_t HEIGHT = 600;
 const std::vector<const char*> deviceExtensions = { VK_KHR_SWAPCHAIN_EXTENSION_NAME };
 
 const std::vector<const char*> validationLayers = { "VK_LAYER_KHRONOS_validation" };
+
+const std::string FILEPATH = "shaders/";
+
 #ifndef _DEBUG
 	const bool enableValidationLayers = false;
 #else
@@ -603,7 +606,7 @@ private:
 
 	void createGraphicsPipeline()
 	{
-		auto vertShaderCode = readFile("C:/Users/johnp/Documents/GitHub/Vulkan/VulkanAdventures/shaders/vert.spv");
+		auto vertShaderCode = readFile(FILEPATH + "vert.spv");
 		VkShaderModule vertShaderModule = createShaderModule(vertShaderCode);
 		VkPipelineShaderStageCreateInfo vertShaderStageInfo{};
 		vertShaderStageInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
@@ -611,7 +614,7 @@ private:
 		vertShaderStageInfo.module = vertShaderModule;
 		vertShaderStageInfo.pName = "main";
 
-		auto fragShaderCode = readFile("C:/Users/johnp/Documents/GitHub/Vulkan/VulkanAdventures/shaders/frag.spv");
+		auto fragShaderCode = readFile(FILEPATH + "frag.spv");
 		VkShaderModule fragShaderModule = createShaderModule(fragShaderCode);
 		VkPipelineShaderStageCreateInfo fragShaderStageInfo{};
 		fragShaderStageInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
