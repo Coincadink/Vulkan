@@ -53,12 +53,6 @@ struct SwapChainSupportDetails
 	std::vector<VkPresentModeKHR> presentModes;
 };
 
-struct RayTracingSupportDetails
-{
-	VkSurfaceCapabilitiesKHR capabilities;
-
-};
-
 class Application
 {
 public:
@@ -247,11 +241,12 @@ private:
 
 		for (const auto& device : devices)
 		{
+			std::cout << device;
 			if (isDeviceSuitable(device)) 
 			{
 				physicalDevice = device;
-				break;
 			}
+			break;
 		}
 
 		if (physicalDevice == VK_NULL_HANDLE)
@@ -267,7 +262,6 @@ private:
 		bool extensionsSupported = checkDeviceExtensionSupport(device);
 
 		bool swapChainAdequate = false;
-		bool hasRayTracing = false;
 		if (extensionsSupported)
 		{
 			SwapChainSupportDetails swapChainSupport = querySwapChainSupport(device);
@@ -286,16 +280,12 @@ private:
 
 		std::set<std::string> requiredExtensions(deviceExtensions.begin(), deviceExtensions.end());
 
-		bool raytracing = false;
-
 		for (const auto& extension : availableExtensions)
 		{
-			if (extension.extensionName == "VK_KHR_ray_tracing_pipeline") raytracing = true;
-
 			requiredExtensions.erase(extension.extensionName);
 		}
 
-		return requiredExtensions.empty() && raytracing;
+		return requiredExtensions.empty();
 	}
 
 	QueueFamilyIndicies findQueueFamilies(VkPhysicalDevice device)
