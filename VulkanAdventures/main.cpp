@@ -977,7 +977,7 @@ private:
 		glfwTerminate();
 	}
 
-	// MEMBER VARIABLES
+	// LOTS OF MEMBER VARIABLES
 
 	GLFWwindow* window;
 	VkInstance instance;
