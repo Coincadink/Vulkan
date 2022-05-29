@@ -284,6 +284,8 @@ private:
 
 		for (const auto& extension : availableExtensions)
 		{
+			std::cout << extension.extensionName << std::endl;
+
 			requiredExtensions.erase(extension.extensionName);
 		}
 
