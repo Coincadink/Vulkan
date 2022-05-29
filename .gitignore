@@ -399,3 +399,4 @@ FodyWeavers.xsd
 
 # Custom Ignores
 *.VC.db
+VulkanAdventures/VulkanAdventures.vcxproj
