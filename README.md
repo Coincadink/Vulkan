@@ -9,7 +9,7 @@ Ensure that you have the [VulkanSDK](https://www.lunarg.com/vulkan-sdk/) install
 Using [git](https://git-scm.com/), clone this repository onto your device.
 
 ```bash
-git clone https://github.com/Coincadink/Vulkan.git
+git clone https://github.com/Coincadink/Vulkan
 ```
 
 Now, moving inside the project directory, propagate the git submodules into your project.
